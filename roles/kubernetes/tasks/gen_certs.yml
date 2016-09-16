@@ -14,6 +14,10 @@
 #    url=https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/saltbase/salt/generate-cert/make-ca-cert.sh
 #    dest={{ kube_script_dir }}/make-ca-cert.sh mode=0500
 #    force=yes
+- name: HACK | overwrite easy-rsa.tar.gz from local copy
+  copy:
+    src=easy-rsa.tar.gz
+    dest=/tmp/easy-rsa.tar.gz
 
 - name: HACK | overwrite make-ca-cert.sh from local copy
   copy:
