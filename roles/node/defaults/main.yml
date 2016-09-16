@@ -6,6 +6,10 @@ services_enabled: true
 kubelet_modified: false
 proxy_modified: false
 
+# make it possible to customize kubelet options
+kubelet_options:
+  - "--pod-infra-container-image=gcr.io/google_containers/pause:2.0"
+
 # List of Kubernetes node binaries to download and install.
 kube_node_binaries:
   - kube-proxy
