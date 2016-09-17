@@ -31,6 +31,10 @@
 - include: kube-dash.yml
   when: kube-dash
 
+- name: HACK | Replace gcr.io with kube_regitry 
+  shell: find {{ kube_addons_dir }} -type f|xargs sed -i "s/gcr.io/{{ kube_regitry }}/g"
+  when: not (kube_regitry is undefined or kube_regitry is none or kube_regitry | trim == '')
+
 - name: Get kube-addons script from Kubernetes
   copy:
     src=common/kube-addons.sh
